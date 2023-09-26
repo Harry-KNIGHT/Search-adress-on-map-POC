@@ -54,8 +54,10 @@ final class SearchAdressViewModel: ObservableObject {
 			
 			let coordinates = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
 
-			self.mapCamera = .camera(.init(centerCoordinate: coordinates, distance: 1000))
-			self.mapMarkerPosition = .init(latitude: latitude, longitude: longitude)
+			withAnimation {
+				self.mapCamera = .camera(.init(centerCoordinate: coordinates, distance: 1000))
+				self.mapMarkerPosition = .init(latitude: latitude, longitude: longitude)
+			}
 		}
 	}
 }
